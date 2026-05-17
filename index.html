@@ -56,6 +56,15 @@ body{font-family:var(--font-body);color:var(--color-text-primary);background:#E0
 /* Section */
 .section{padding:80px 0}
 
+/* あにぽん キャラクター */
+.anippon{mix-blend-mode:multiply;display:block;pointer-events:none;flex-shrink:0}
+.anippon-hero{position:absolute;bottom:-18px;right:-16px;width:130px;transform:rotate(-8deg);z-index:4;filter:drop-shadow(0 4px 8px rgba(10,24,8,.15))}
+.anippon-section-head{width:72px;transform:rotate(6deg);align-self:flex-end;margin-left:auto}
+.anippon-form-head{width:80px;transform:rotate(-6deg);align-self:flex-end}
+.anippon-feat-cta{width:80px;transform:rotate(10deg);align-self:flex-end;margin-left:8px}
+.anippon-footer{position:absolute;bottom:0;right:24px;width:80px;opacity:.85}
+@media(max-width:768px){.anippon-hero{width:90px;right:-8px}.anippon-section-head,.anippon-form-head,.anippon-feat-cta{width:56px}}
+
 /* Buttons */
 .btn{display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:var(--font-body);font-weight:700;letter-spacing:.5px;transition:var(--transition);text-decoration:none;white-space:nowrap;border-radius:var(--radius-md)}
 .btn-primary{background:var(--color-brand-primary);color:#fff;padding:12px 28px;font-size:14px;box-shadow:var(--shadow-button)}
@@ -295,7 +304,7 @@ textarea.form-control{min-height:90px;resize:vertical}
       <div class="hero-image-wrap">
         <img src="images/hero.jpg" alt="あにまにあ 自然観察会" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
-      <div class="hero-content">
+      <div class="hero-content" style="position:relative;overflow:visible;">
         <p class="hero-overline">🌿 Natural Experience for Families</p>
         <h1 class="hero-title">緑あふれる<br>自然の中へ、<br>いざ出発！</h1>
         <p class="hero-sub">自然の案内をする専門家と一緒に、子供も大人もワクワクする自然体験を。本物のフィールド冒険がここに。</p>
@@ -308,6 +317,7 @@ textarea.form-control{min-height:90px;resize:vertical}
           <a href="#apply" class="btn btn-accent btn-lg">参加申込みはこちら</a>
           <a href="#featuring" class="btn btn-secondary">イベントを見る</a>
         </div>
+        <img src="images/anippon-あにぽん全体.jpg" alt="あにぽん" class="anippon anippon-hero">
       </div>
     </div>
   </div>
@@ -350,9 +360,10 @@ textarea.form-control{min-height:90px;resize:vertical}
           <p class="capacity-label">残席状況</p>
           <div class="capacity-track"><div class="capacity-fill" style="width:75%"></div></div>
           <p class="capacity-text">定員20名 ／ 残り5名</p>
-          <div class="featuring-cta">
+          <div class="featuring-cta" style="align-items:flex-end;">
             <a href="#apply" class="btn btn-primary">参加申込みをする</a>
             <a href="#" class="btn btn-secondary">詳細を見る</a>
+            <img src="images/anippon-あにぽんjoy.jpg" alt="あにぽん" class="anippon anippon-feat-cta">
           </div>
         </div>
       </div>
@@ -392,6 +403,7 @@ textarea.form-control{min-height:90px;resize:vertical}
         <p class="overline">Our Experts</p>
         <h2>あにまにあの専門家</h2>
       </div>
+      <img src="images/anippon-あにぽんsurprise.jpg" alt="あにぽん" class="anippon anippon-section-head">
     </div>
     <div class="experts-grid">
       <a href="sasaki/" class="expert-card">
@@ -445,10 +457,13 @@ textarea.form-control{min-height:90px;resize:vertical}
 <section id="apply" class="form-section">
   <div class="container">
     <div class="form-wrapper">
-      <div class="form-head">
-        <div class="camo-bar"></div>
-        <h2>イベント参加申込み</h2>
-        <p>お申込み後、担当者よりメールにてご確認の連絡をいたします。</p>
+      <div class="form-head" style="display:flex;align-items:flex-start;gap:16px;">
+        <div style="flex:1;">
+          <div class="camo-bar"></div>
+          <h2>イベント参加申込み</h2>
+          <p>お申込み後、担当者よりメールにてご確認の連絡をいたします。</p>
+        </div>
+        <img src="images/anippon-あにぽんreeding.jpg" alt="あにぽん" class="anippon anippon-form-head" style="margin-top:16px;">
       </div>
       <div class="form-body">
         <div class="form-row">
@@ -513,6 +528,7 @@ textarea.form-control{min-height:90px;resize:vertical}
         <p class="overline">Events</p>
         <h2>イベント・出演告知一覧</h2>
       </div>
+      <img src="images/anippon-あにぽんrunning.jpg" alt="あにぽん" class="anippon anippon-section-head">
     </div>
     <div class="filter-tabs">
       <button class="filter-tab active">すべて</button>
@@ -580,11 +596,14 @@ textarea.form-control{min-height:90px;resize:vertical}
 <!-- ABOUT -->
 <section id="about" class="about-section">
   <div class="container">
-    <div class="stats-grid">
-      <div class="stat-card"><div class="stat-icon">📅</div><div class="stat-number">120+</div><div class="stat-label">開催イベント数</div></div>
-      <div class="stat-card"><div class="stat-icon">👨‍👩‍👧</div><div class="stat-number">800+</div><div class="stat-label">参加ファミリー数</div></div>
-      <div class="stat-card"><div class="stat-icon">🔬</div><div class="stat-number">30+</div><div class="stat-label">専門家・ゲスト数</div></div>
-      <div class="stat-card"><div class="stat-icon">🌿</div><div class="stat-number">5年</div><div class="stat-label">活動継続年数</div></div>
+    <div style="display:flex;align-items:flex-end;gap:16px;margin-bottom:56px;">
+      <div class="stats-grid" style="margin-bottom:0;flex:1;">
+        <div class="stat-card"><div class="stat-icon">📅</div><div class="stat-number">120+</div><div class="stat-label">開催イベント数</div></div>
+        <div class="stat-card"><div class="stat-icon">👨‍👩‍👧</div><div class="stat-number">800+</div><div class="stat-label">参加ファミリー数</div></div>
+        <div class="stat-card"><div class="stat-icon">🔬</div><div class="stat-number">30+</div><div class="stat-label">専門家・ゲスト数</div></div>
+        <div class="stat-card"><div class="stat-icon">🌿</div><div class="stat-number">5年</div><div class="stat-label">活動継続年数</div></div>
+      </div>
+      <img src="images/anippon-あにぽんgorogoro.jpg" alt="あにぽん" class="anippon" style="width:100px;mix-blend-mode:multiply;flex-shrink:0;transform:rotate(-5deg);">
     </div>
     <div class="about-content">
       <div class="about-text">
@@ -633,7 +652,8 @@ textarea.form-control{min-height:90px;resize:vertical}
 </section>
 
 <!-- FOOTER -->
-<footer class="site-footer">
+<footer class="site-footer" style="position:relative;overflow:hidden;">
+  <img src="images/anippon-あにぽんsleepy.jpg" alt="あにぽん" class="anippon anippon-footer">
   <div class="container">
     <div class="footer-top">
       <div>
