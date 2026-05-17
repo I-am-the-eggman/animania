@@ -144,7 +144,8 @@ body{font-family:var(--font-body);color:var(--color-text-primary);background:#E0
 @media(max-width:640px){.experts-grid{grid-template-columns:1fr}}
 .expert-card{background:var(--color-surface-overlay);border:2px solid var(--color-border-default);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);box-shadow:var(--shadow-md);text-decoration:none;color:inherit;display:block}
 .expert-card:hover{border-color:var(--color-brand-primary);box-shadow:0 8px 32px rgba(10,138,64,.15);transform:translateY(-3px)}
-.expert-card-img{width:100%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;font-size:52px;font-weight:700;color:#fff;font-family:var(--font-display)}
+.expert-card-img{width:100%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;font-size:52px;font-weight:700;color:#fff;font-family:var(--font-display);overflow:hidden}
+.expert-card-img img{width:100%;height:100%;object-fit:cover;object-position:top center}
 .expert-card-body{padding:16px}
 .expert-card-name{font-size:18px;font-weight:700;margin-bottom:4px}
 .expert-card-specialty{font-size:12px;font-weight:700;color:var(--color-brand-primary);margin-bottom:8px}
@@ -393,14 +394,14 @@ textarea.form-control{min-height:90px;resize:vertical}
       </div>
     </div>
     <div class="experts-grid">
-      <a href="#" class="expert-card">
+      <a href="sasaki/" class="expert-card">
         <div class="camo-bar"></div>
-        <div class="expert-card-img" style="background:linear-gradient(135deg,#08842C,#44C030,#D4AA28)">田</div>
+        <div class="expert-card-img"><img src="images/sasaki-main.png" alt="佐々木洋 ささき隊長"></div>
         <div class="expert-card-body">
-          <p class="expert-card-name">田中 誠一</p>
-          <p class="expert-card-specialty">🦋 昆虫学者</p>
-          <p class="expert-card-desc">東京大学大学院農学部卒。NHK「昆虫の世界」レギュラー出演。子供向け昆虫図鑑を多数執筆。</p>
-          <p class="expert-card-count">📅 出演イベント 8件</p>
+          <p class="expert-card-name">佐々木洋 / ささき隊長</p>
+          <p class="expert-card-specialty">🌿 プロナチュラリスト</p>
+          <p class="expert-card-desc">NHK ダーウィンが来た 等の多くのTV・ラジオ番組に出演するかたわら、自然観察指導、自然に関する執筆活動を行っている。</p>
+          <p class="expert-card-count">📅 プロフィール・出演歴を見る →</p>
         </div>
       </a>
       <a href="#" class="expert-card">
