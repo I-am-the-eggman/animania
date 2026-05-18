@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>湘南の海で、地引網大会！ | あにまにあイベント | あにまにあ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-bg-primary: #E0F2D0;
+  --color-surface-overlay: rgba(240,250,235,0.94);
+  --color-text-primary: #142A10;
+  --color-text-secondary: #3E6E30;
+  --color-text-tertiary: #6BAA50;
+  --color-border-default: #90D070;
+  --color-border-subtle: #C8E0B8;
+  --color-brand-primary: #0A8A40;
+  --color-brand-primary-hover: #08842C;
+  --color-brand-accent: #E8A010;
+  --font-display: 'Bungee Shade', cursive;
+  --font-body: 'Zen Kaku Gothic New', sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+  --shadow-md: 0 3px 12px rgba(10,24,8,0.10);
+  --shadow-lg: 0 8px 24px rgba(10,24,8,0.12);
+  --shadow-xl: 0 12px 40px rgba(10,138,64,0.18);
+  --shadow-button: 0 4px 12px rgba(10,138,64,0.30);
+  --gradient-bar: linear-gradient(to right,#08842C,#44C030,#6AD850,#D4AA28);
+  --transition: all 0.3s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--color-text-primary);background:#E0F2D0;overflow-x:hidden}
+
+/* Camo background */
+.camo-bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.camo-bg svg{width:100%;height:100%;position:absolute;inset:0}
+.site-wrapper{position:relative;z-index:1}
+
+.container{max-width:960px;margin:0 auto;padding:0 32px}
+@media(max-width:768px){.container{padding:0 16px}}
+
+.camo-bar{height:4px;background:var(--gradient-bar)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:var(--font-body);font-weight:700;letter-spacing:.5px;transition:var(--transition);text-decoration:none;border-radius:var(--radius-md)}
+.btn-primary{background:var(--color-brand-primary);color:#fff;padding:12px 28px;font-size:14px;box-shadow:var(--shadow-button)}
+.btn-primary:hover{background:var(--color-brand-primary-hover);transform:translateY(-1px)}
+.btn-secondary{background:transparent;color:var(--color-brand-primary);border:2px solid var(--color-brand-primary);padding:10px 22px;font-size:14px}
+.btn-secondary:hover{background:rgba(10,138,64,.08)}
+
+/* ===== HEADER ===== */
+.site-header{position:sticky;top:0;z-index:100;padding:12px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;background:rgba(240,250,235,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:var(--radius-md);padding:6px 8px 6px 20px;border:1px solid var(--color-border-subtle);box-shadow:0 1px 3px rgba(10,24,8,.08)}
+.nav-logo{text-decoration:none;display:flex;align-items:center}
+.nav-logo img{height:32px;width:auto;mix-blend-mode:multiply}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links a{font-size:11px;color:var(--color-text-secondary);text-decoration:none;padding:4px 10px;border-radius:var(--radius-sm);transition:all .15s ease}
+.nav-links a:hover{background:rgba(10,138,64,.08);color:var(--color-brand-primary);font-weight:700}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb{padding:20px 0 0}
+.breadcrumb-inner{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--color-text-tertiary)}
+.breadcrumb a{color:var(--color-text-tertiary);text-decoration:none;transition:color .15s}
+.breadcrumb a:hover{color:var(--color-brand-primary)}
+.breadcrumb-sep{color:var(--color-border-default)}
+
+/* ===== EVENT HERO ===== */
+.event-hero{padding:32px 0 60px}
+.event-hero-grid{display:grid;grid-template-columns:400px 1fr;gap:48px;align-items:start}
+@media(max-width:768px){.event-hero-grid{grid-template-columns:1fr}}
+
+.event-main-photo{border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);border:3px solid var(--color-border-default)}
+.event-main-photo img{width:100%;display:block;object-fit:cover}
+
+.event-info-panel{background:var(--color-surface-overlay);border:2px solid var(--color-border-default);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+.event-info-head{padding:28px 28px 24px}
+.event-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#0A8A40;background:rgba(10,138,64,.10);border:1px solid var(--color-border-default);border-radius:var(--radius-full);padding:4px 14px;margin-bottom:14px}
+.event-title{font-size:26px;font-weight:700;color:var(--color-text-primary);line-height:1.3;margin-bottom:20px}
+.event-meta-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.event-meta-item{display:flex;align-items:baseline;gap:10px;font-size:14px;padding-bottom:10px;border-bottom:1px solid var(--color-border-subtle)}
+.event-meta-item:last-child{border-bottom:none;padding-bottom:0}
+.event-meta-label{font-size:11px;font-weight:700;color:var(--color-brand-primary);min-width:60px;flex-shrink:0;padding:2px 8px;background:rgba(10,138,64,.08);border-radius:var(--radius-full);text-align:center}
+.event-meta-value{color:var(--color-text-primary);line-height:1.5}
+.event-category-tags{display:flex;gap:6px;flex-wrap:wrap}
+.category-tag{font-size:12px;font-weight:700;color:var(--color-brand-primary);background:rgba(10,138,64,.08);border:1px solid var(--color-border-default);border-radius:var(--radius-full);padding:3px 12px}
+
+/* ===== DETAIL SECTIONS ===== */
+.detail-section{padding:48px 0}
+.detail-section:first-of-type{padding-top:0}
+.detail-card{background:var(--color-surface-overlay);border:2px solid var(--color-border-default);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);margin-bottom:24px}
+.detail-card-head{padding:20px 28px;border-bottom:1px solid var(--color-border-subtle);display:flex;align-items:center;gap:12px}
+.detail-icon{width:34px;height:34px;border-radius:var(--radius-md);background:linear-gradient(135deg,#08842C,#44C030);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;flex-shrink:0}
+.detail-card-head h2{font-size:18px;font-weight:700;color:var(--color-text-primary)}
+.detail-card-body{padding:24px 28px}
+.detail-card-body p{font-size:15px;line-height:1.9;color:var(--color-text-secondary)}
+
+/* Photo grid */
+.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:640px){.photo-grid{grid-template-columns:1fr}}
+.photo-wrap{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);border:2px solid var(--color-border-default)}
+.photo-wrap img{width:100%;display:block;object-fit:cover;aspect-ratio:4/3}
+
+/* Price */
+.price-display{display:flex;align-items:baseline;gap:8px}
+.price-main{font-size:28px;font-weight:700;color:var(--color-brand-primary)}
+.price-note{font-size:14px;color:var(--color-text-secondary)}
+
+/* CTA */
+.event-cta{padding:0 0 80px;text-align:center}
+.event-cta-inner{background:var(--color-surface-overlay);border:2px solid var(--color-border-default);border-radius:var(--radius-xl);padding:40px;box-shadow:var(--shadow-md);display:inline-block;max-width:560px;width:100%}
+.event-cta h3{font-size:20px;font-weight:700;margin-bottom:10px}
+.event-cta p{font-size:14px;color:var(--color-text-secondary);margin-bottom:24px;line-height:1.7}
+.event-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* Back link */
+.back-nav{padding:20px 0 0}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--color-text-secondary);text-decoration:none;transition:color .15s}
+.back-link:hover{color:var(--color-brand-primary)}
+
+/* ===== FOOTER ===== */
+.site-footer{background:#184A18;color:#fff;padding:40px 0 24px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-logo-img{height:32px;width:auto;filter:invert(1) brightness(2);mix-blend-mode:screen}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.4)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:12px;color:rgba(255,255,255,.4);text-decoration:none}
+.footer-links a:hover{color:rgba(255,255,255,.75)}
+</style>
+</head>
+<body>
+
+<!-- Camo Background -->
+<div class="camo-bg" aria-hidden="true">
+  <svg viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1000" height="700" fill="#E0F2D0"/>
+    <path d="M0,180 C80,120 200,240 320,180 C440,120 520,260 640,200 C760,140 880,240 1000,180 L1000,0 L0,0 Z" fill="#44C030" opacity="0.16"/>
+    <path d="M0,420 C120,360 240,460 380,400 C520,340 620,460 760,390 C880,330 950,420 1000,380 L1000,700 L0,700 Z" fill="#08842C" opacity="0.18"/>
+    <path d="M0,300 C140,250 280,350 420,290 C560,230 680,340 820,280 C900,250 960,300 1000,270 L1000,0 L0,0 Z" fill="#6AD850" opacity="0.12"/>
+    <path d="M0,550 C100,500 220,600 360,540 C500,480 620,570 760,510 C880,460 960,540 1000,500 L1000,700 L0,700 Z" fill="#D4AA28" opacity="0.15"/>
+    <path d="M0,650 C150,620 300,680 450,640 C600,600 730,660 900,630 L1000,620 L1000,700 L0,700 Z" fill="#184A18" opacity="0.13"/>
+    <ellipse cx="120" cy="350" rx="90" ry="60" fill="#184A18" opacity="0.10" transform="rotate(-15 120 350)"/>
+    <ellipse cx="480" cy="140" rx="110" ry="70" fill="#6AD850" opacity="0.11" transform="rotate(10 480 140)"/>
+    <ellipse cx="750" cy="480" rx="100" ry="65" fill="#44C030" opacity="0.12" transform="rotate(-8 750 480)"/>
+    <ellipse cx="300" cy="580" rx="80" ry="50" fill="#08842C" opacity="0.13" transform="rotate(20 300 580)"/>
+    <ellipse cx="870" cy="200" rx="120" ry="75" fill="#D4AA28" opacity="0.09" transform="rotate(-12 870 200)"/>
+    <circle cx="200" cy="200" r="30" fill="#6AD850" opacity="0.12"/>
+    <circle cx="680" cy="320" r="22" fill="#44C030" opacity="0.13"/>
+    <circle cx="420" cy="510" r="28" fill="#D4AA28" opacity="0.11"/>
+  </svg>
+</div>
+
+<div class="site-wrapper">
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="../../" class="nav-logo"><img src="../../images/logo.jpg" alt="animania"></a>
+      <ul class="nav-links">
+        <li><a href="../../#featuring">注目イベント</a></li>
+        <li><a href="../../#experts">専門家</a></li>
+        <li><a href="../../#events">イベント一覧</a></li>
+        <li><a href="../../#about">あにまにあとは</a></li>
+      </ul>
+      <a href="../../#apply" class="btn btn-primary" style="font-size:12px;padding:8px 20px;">今すぐ申込む</a>
+    </nav>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="../../">トップ</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../../#events">イベント一覧</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>湘南の海で、地引網大会！</span>
+    </div>
+  </div>
+</div>
+
+<!-- EVENT HERO -->
+<section class="event-hero">
+  <div class="container">
+
+    <!-- Back link -->
+    <div class="back-nav" style="margin-bottom:24px">
+      <a href="../../#events" class="back-link">← イベント一覧へ戻る</a>
+    </div>
+
+    <div class="event-hero-grid">
+
+      <!-- Main photo -->
+      <div class="event-main-photo">
+        <img src="../../images/featuring-event.jpg" alt="湘南の海で、地引網大会！">
+      </div>
+
+      <!-- Info panel -->
+      <div>
+        <div class="event-info-panel">
+          <div class="camo-bar"></div>
+          <div class="event-info-head">
+            <div class="event-status">● 募集中</div>
+            <h1 class="event-title">湘南の海で、地引網大会！</h1>
+            <ul class="event-meta-list">
+              <li class="event-meta-item">
+                <span class="event-meta-label">日時</span>
+                <span class="event-meta-value">2026年7月25日</span>
+              </li>
+              <li class="event-meta-item">
+                <span class="event-meta-label">場所</span>
+                <span class="event-meta-value">神奈川県鎌倉市</span>
+              </li>
+              <li class="event-meta-item">
+                <span class="event-meta-label">講師</span>
+                <span class="event-meta-value">佐々木洋（ささき隊長）</span>
+              </li>
+              <li class="event-meta-item">
+                <span class="event-meta-label">料金</span>
+                <span class="event-meta-value">
+                  <span class="price-main">10,000円</span>
+                  <span class="price-note">/お1人様（子供 6,000円）</span>
+                </span>
+              </li>
+              <li class="event-meta-item">
+                <span class="event-meta-label">カテゴリー</span>
+                <span class="event-meta-value">
+                  <span class="event-category-tags">
+                    <span class="category-tag">自然観察</span>
+                    <span class="category-tag">ふれあい体験</span>
+                  </span>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL CONTENT -->
+<div class="detail-section">
+  <div class="container">
+
+    <!-- Overview -->
+    <div class="detail-card">
+      <div class="camo-bar"></div>
+      <div class="detail-card-head">
+        <div class="detail-icon">🌊</div>
+        <h2>概要</h2>
+      </div>
+      <div class="detail-card-body">
+        <p>プロナチュラリスト ささき隊長と一緒に、鎌倉 湘南の海で地引網漁の体験をします。大人も夢中になれる、本格的なフィールドワーク体験です。</p>
+      </div>
+    </div>
+
+    <!-- Photos -->
+    <div class="detail-card">
+      <div class="camo-bar"></div>
+      <div class="detail-card-head">
+        <div class="detail-icon">📷</div>
+        <h2>イベントの様子</h2>
+      </div>
+      <div class="detail-card-body">
+        <div class="photo-grid">
+          <div class="photo-wrap">
+            <img src="../../images/jibiki2.jpg" alt="地引網大会の様子1">
+          </div>
+          <div class="photo-wrap">
+            <img src="../../images/jibiki3.jpg" alt="地引網大会の様子2">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="event-cta">
+  <div class="container">
+    <div class="event-cta-inner">
+      <h3>このイベントに参加する</h3>
+      <p>参加申込みはトップページの申込みフォームからお気軽にどうぞ。</p>
+      <div class="event-cta-btns">
+        <a href="../../#apply" class="btn btn-primary">今すぐ申込む</a>
+        <a href="../../" class="btn btn-secondary">トップへ戻る</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- .site-wrapper -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <img src="../../images/logo.jpg" alt="animania" class="footer-logo-img">
+      <span class="footer-copy">© 2026 あにまにあ All rights reserved.</span>
+      <div class="footer-links">
+        <a href="../../contact.html">お問い合わせ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
