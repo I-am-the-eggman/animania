@@ -172,8 +172,6 @@ body{font-family:var(--font-body);color:var(--color-text-primary);background:#E0
 .form-body{padding:28px 32px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:600px){.form-row{grid-template-columns:1fr}}
-.google-form-embed{padding:0;border-top:1px solid var(--color-border-subtle)}
-.google-form-embed iframe{display:block;width:100%;border:none;}
 .form-group{margin-bottom:18px}
 .form-label{display:block;font-size:13px;font-weight:700;color:var(--color-text-secondary);margin-bottom:6px}
 .required{color:#D04040;margin-left:4px}
@@ -466,35 +464,93 @@ textarea.form-control{min-height:90px;resize:vertical}
         </div>
         <img src="images/anipon_reading.png" alt="あにぽん" class="anippon anippon-form-head" style="margin-top:16px;">
       </div>
-      <!-- ▼▼▼ Google フォーム埋め込み ▼▼▼
-           手順：
-           1. Google フォームを作成し、以下の項目を追加
-              - お名前（記述式・必須）
-              - フリガナ（記述式・必須）
-              - メールアドレス（記述式・必須）
-              - 参加希望イベント（プルダウン・必須）
-              - 参加人数 大人（プルダウン：1名〜）
-              - 参加人数 子供（プルダウン：0名〜）
-              - 自由記述（段落）placeholder:「お子様の年齢をお書きください。また、ご質問やご要望があればご記入ください。」
-           2. フォームの「送信」→「埋め込み」タブからURLを取得
-           3. 下記 src="★ここにGoogleフォームの埋め込みURLを貼り付け★" を差し替える
-      -->
-      <div class="google-form-embed">
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSfpNZ4ijQtfswy0LKP0gVxpALOBM2vYJ2dk9Zq1opfwNIg4Eg/viewform?embedded=true&rm=minimal"
-          width="640"
-          height="1773"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          title="イベント参加申込みフォーム">
-          読み込んでいます…
-        </iframe>
+      <!-- 送信完了後に表示 -->
+      <div class="apply-thankyou" id="apply-thankyou" style="display:none;padding:48px 32px;text-align:center;">
+        <img src="images/anipon_joy.png" alt="あにぽん" style="width:90px;margin:0 auto 16px;display:block;">
+        <div style="font-size:56px;margin-bottom:14px;">🎉</div>
+        <p style="font-size:20px;font-weight:700;color:var(--color-brand-primary);margin-bottom:10px;">お申込みありがとうございます！</p>
+        <p style="font-size:14px;line-height:1.8;color:var(--color-text-secondary);">
+          ご記入いただいた内容を受け付けました。<br>
+          担当者より、ご登録のメールアドレスに確認のご連絡をいたします。
+        </p>
       </div>
-      <!-- ▲▲▲ Google フォーム埋め込みここまで ▲▲▲ -->
+
+      <form
+        id="apply-form"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSfpNZ4ijQtfswy0LKP0gVxpALOBM2vYJ2dk9Zq1opfwNIg4Eg/formResponse"
+        method="POST"
+        target="hidden_iframe_apply">
+
+        <div class="form-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="name">お名前<span class="required">※</span></label>
+              <input type="text" id="name" name="entry.1702441311" class="form-control" placeholder="山田 太郎" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="furigana">フリガナ<span class="required">※</span></label>
+              <input type="text" id="furigana" name="entry.720877465" class="form-control" placeholder="ヤマダ タロウ" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">メールアドレス<span class="required">※</span></label>
+            <input type="email" id="email" name="entry.2103356990" class="form-control" placeholder="example@email.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="event">参加希望イベント<span class="required">※</span></label>
+            <select id="event" name="entry.1015122764" class="form-control form-select" required>
+              <option value="" disabled selected>イベントを選択してください</option>
+              <!-- ▼ Googleフォーム側の選択肢と完全一致させること ▼ -->
+              <option value="湘南の海で、地引網大会！（2026年6月15日）">湘南の海で、地引網大会！（2026年6月15日）</option>
+              <option value="森の野鳥写真撮影会 with 山田花子（2026年7月5日）">森の野鳥写真撮影会 with 山田花子（2026年7月5日）</option>
+              <option value="爬虫類ふれあい体験（2026年7月20日）">爬虫類ふれあい体験（2026年7月20日）</option>
+              <option value="川の生き物を探そう！親子で水生生物観察（2026年8月10日）">川の生き物を探そう！親子で水生生物観察（2026年8月10日）</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="adults">参加人数（大人）<span class="required">※</span></label>
+              <select id="adults" name="entry.1516544655" class="form-control form-select" required>
+                <option value="" disabled selected>選択</option>
+                <option value="1名">1名</option>
+                <option value="2名">2名</option>
+                <option value="3名">3名</option>
+                <option value="4名">4名</option>
+                <option value="5名以上">5名以上</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="children">参加人数（子供 12歳以下）<span class="required">※</span></label>
+              <select id="children" name="entry.1690055329" class="form-control form-select" required>
+                <option value="" disabled selected>選択</option>
+                <option value="0名">0名</option>
+                <option value="1名">1名</option>
+                <option value="2名">2名</option>
+                <option value="3名">3名</option>
+                <option value="4名">4名</option>
+                <option value="5名以上">5名以上</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label" for="message">自由記入欄</label>
+            <textarea id="message" name="entry.759535881" class="form-control" placeholder="お子様の年齢をお書きください。また、ご質問やご要望があればご記入ください。"></textarea>
+          </div>
+        </div>
+
+        <div class="form-foot">
+          <button type="submit" class="btn btn-primary btn-submit">申込みを送信する →</button>
+          <p style="text-align:center;font-size:12px;color:var(--color-text-tertiary);margin-top:12px;">
+            送信をもってプライバシーポリシーに同意したものとみなします。
+          </p>
+        </div>
+
+      </form>
     </div>
   </div>
 </section>
+
+<iframe name="hidden_iframe_apply" id="hidden_iframe_apply" style="display:none;" title="form-target"></iframe>
 
 <!-- EVENTS LIST -->
 <section id="events" class="events-section">
@@ -675,6 +731,16 @@ document.querySelectorAll('.filter-tab').forEach(tab => {
     document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
     this.classList.add('active');
   });
+});
+
+// 申込みフォーム送信後にサンクスメッセージを表示
+var applyIframeLoaded = false;
+document.getElementById('hidden_iframe_apply').addEventListener('load', function() {
+  if (!applyIframeLoaded) { applyIframeLoaded = true; return; }
+  document.getElementById('apply-form').style.display = 'none';
+  document.getElementById('apply-thankyou').style.display = 'block';
+  var wrapper = document.querySelector('#apply .form-wrapper');
+  window.scrollTo({ top: wrapper.offsetTop - 80, behavior: 'smooth' });
 });
 </script>
 </body>
