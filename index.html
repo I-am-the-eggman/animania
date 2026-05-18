@@ -172,6 +172,8 @@ body{font-family:var(--font-body);color:var(--color-text-primary);background:#E0
 .form-body{padding:28px 32px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.google-form-embed{padding:0;border-top:1px solid var(--color-border-subtle)}
+.google-form-embed iframe{display:block;width:100%;border:none;}
 .form-group{margin-bottom:18px}
 .form-label{display:block;font-size:13px;font-weight:700;color:var(--color-text-secondary);margin-bottom:6px}
 .required{color:#D04040;margin-left:4px}
@@ -479,14 +481,13 @@ textarea.form-control{min-height:90px;resize:vertical}
       -->
       <div class="google-form-embed">
         <iframe
-          src="★ここにGoogleフォームの埋め込みURLを貼り付け★"
-          width="100%"
-          height="900"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSfpNZ4ijQtfswy0LKP0gVxpALOBM2vYJ2dk9Zq1opfwNIg4Eg/viewform?embedded=true"
+          width="640"
+          height="1773"
           frameborder="0"
           marginheight="0"
           marginwidth="0"
-          title="イベント参加申込みフォーム"
-          style="border:none;display:block;">
+          title="イベント参加申込みフォーム">
           読み込んでいます…
         </iframe>
       </div>
