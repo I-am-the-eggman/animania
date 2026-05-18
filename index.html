@@ -223,8 +223,7 @@ textarea.form-control{min-height:90px;resize:vertical}
 
 /* ===== ORG ===== */
 .org-section{padding:80px 0;background:rgba(24,74,24,.05)}
-.org-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-@media(max-width:768px){.org-inner{grid-template-columns:1fr}}
+.org-inner{max-width:640px}
 .org-table-wrap{background:var(--color-surface-overlay);border:2px solid var(--color-border-default);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)}
 .org-table-wrap table{width:100%;border-collapse:collapse}
 .org-table-wrap th,.org-table-wrap td{padding:14px 20px;text-align:left;font-size:14px;border-bottom:1px solid var(--color-border-subtle)}
@@ -465,56 +464,33 @@ textarea.form-control{min-height:90px;resize:vertical}
         </div>
         <img src="images/anippon-あにぽんreeding.jpg" alt="あにぽん" class="anippon anippon-form-head" style="margin-top:16px;">
       </div>
-      <div class="form-body">
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">お名前<span class="required">*</span></label>
-            <input type="text" class="form-control" placeholder="山田 太郎">
-          </div>
-          <div class="form-group">
-            <label class="form-label">フリガナ<span class="required">*</span></label>
-            <input type="text" class="form-control" placeholder="ヤマダ タロウ">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">メールアドレス<span class="required">*</span></label>
-          <input type="email" class="form-control" placeholder="example@mail.com">
-        </div>
-        <div class="form-group">
-          <label class="form-label">参加希望イベント<span class="required">*</span></label>
-          <select class="form-control form-select">
-            <option value="">イベントを選択してください</option>
-            <option>湘南の海で、地引網大会！（6/15）</option>
-            <option>森の野鳥写真撮影会 with 山田花子（7/5）</option>
-            <option>爬虫類ふれあい体験（7/20）</option>
-            <option>川の生き物を探そう！（8/10）</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">参加人数</label>
-          <div class="count-row">
-            <div class="count-group">
-              <label>大人</label>
-              <select class="form-control form-select">
-                <option>1名</option><option>2名</option><option>3名</option>
-              </select>
-            </div>
-            <div class="count-group">
-              <label>子供（12歳以下）</label>
-              <select class="form-control form-select">
-                <option>1名</option><option>2名</option><option>3名</option><option>4名</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">お子様の年齢・その他ご質問</label>
-          <textarea class="form-control" placeholder="お子様の年齢や、ご質問・ご要望などがあればご記入ください。"></textarea>
-        </div>
+      <!-- ▼▼▼ Google フォーム埋め込み ▼▼▼
+           手順：
+           1. Google フォームを作成し、以下の項目を追加
+              - お名前（記述式・必須）
+              - フリガナ（記述式・必須）
+              - メールアドレス（記述式・必須）
+              - 参加希望イベント（プルダウン・必須）
+              - 参加人数 大人（プルダウン：1名〜）
+              - 参加人数 子供（プルダウン：0名〜）
+              - 自由記述（段落）placeholder:「お子様の年齢をお書きください。また、ご質問やご要望があればご記入ください。」
+           2. フォームの「送信」→「埋め込み」タブからURLを取得
+           3. 下記 src="★ここにGoogleフォームの埋め込みURLを貼り付け★" を差し替える
+      -->
+      <div class="google-form-embed">
+        <iframe
+          src="★ここにGoogleフォームの埋め込みURLを貼り付け★"
+          width="100%"
+          height="900"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="イベント参加申込みフォーム"
+          style="border:none;display:block;">
+          読み込んでいます…
+        </iframe>
       </div>
-      <div class="form-foot">
-        <button type="submit" class="btn btn-primary btn-submit">申し込む →</button>
-      </div>
+      <!-- ▲▲▲ Google フォーム埋め込みここまで ▲▲▲ -->
     </div>
   </div>
 </section>
@@ -637,15 +613,10 @@ textarea.form-control{min-height:90px;resize:vertical}
       <div class="org-table-wrap">
         <table>
           <tr><th>団体名</th><td>（株）佐々木洋 事務所</td></tr>
-          <tr><th>代表者</th><td>佐々木 洋</td></tr>
           <tr><th>所在地</th><td>〒107-0081 東京都港区北青山一丁目3番1号<br>アールキューブ青山3階</td></tr>
-          <tr><th>電話番号</th><td>03-5114-8170</td></tr>
-          <tr><th>メール</th><td><img src="images/email.svg" alt="info@animania.life" style="height:20px;vertical-align:middle;"></td></tr>
+          <tr><th>運営責任者</th><td>芳村かれん</td></tr>
+          <tr><th>お問い合わせ先</th><td><img src="images/email.svg" alt="info@animania.life" style="height:20px;vertical-align:middle;"></td></tr>
         </table>
-      </div>
-      <div class="org-map">
-        <div class="org-map-icon">📍</div>
-        <div class="org-map-label">東京都渋谷区神宮前</div>
       </div>
     </div>
   </div>
