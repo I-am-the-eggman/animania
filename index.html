@@ -87,6 +87,10 @@ body{font-family:var(--font-body);color:var(--color-text-primary);background:#E0
 .btn-accent{background:var(--color-brand-accent);color:#fff;padding:12px 28px;font-size:14px;box-shadow:0 4px 12px rgba(232,160,16,.30)}
 .btn-accent:hover{background:#D08A08}
 .btn-lg{padding:16px 36px;font-size:16px}
+.btn-line{background:#06C755;color:#fff;padding:12px 28px;font-size:14px;box-shadow:0 4px 12px rgba(6,199,85,.35)}
+.btn-line:hover{background:#05a847;transform:translateY(-1px)}
+.line-cta-box{background:rgba(6,199,85,.06);border:2px solid rgba(6,199,85,.3);border-radius:var(--radius-lg);padding:28px;text-align:center}
+.line-cta-box p{font-size:14px;line-height:1.8;color:var(--color-text-secondary);margin-bottom:16px}
 
 /* Cards */
 .card{background:var(--color-surface-overlay);border:2px solid var(--color-border-default);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);box-shadow:var(--shadow-md)}
@@ -498,7 +502,7 @@ textarea.form-control{min-height:90px;resize:vertical}
         <div style="flex:1;">
           <div class="camo-bar"></div>
           <h2>イベント参加申込み</h2>
-          <p>お申込み後、担当者よりメールにてご確認の連絡をいたします。</p>
+          <p>LINEで登録ご希望の方は、下部の「LINEで登録する」を押してください。メールがご希望の方は、下記フォームにご記入後、送信ボタンを押してください。お申込み後、担当者よりご確認の連絡をいたします。</p>
           <p style="color:#C03030;font-weight:700;font-size:14px;margin-top:10px;">現在、お申込みできるイベントはありません。新しいイベントが決定次第、お知らせをいたしますので、よろしければご登録ください。</p>
         </div>
         <img src="images/anipon_reading.png" alt="あにぽん" class="anippon anippon-form-head" style="margin-top:16px;">
@@ -582,6 +586,19 @@ textarea.form-control{min-height:90px;resize:vertical}
         </div>
 
       </form>
+    </div>
+  </div>
+</section>
+
+<!-- LINE CTA -->
+<section style="padding:0 0 80px;">
+  <div class="container">
+    <div style="max-width:640px;margin:0 auto;">
+      <div class="line-cta-box">
+        <p>🌿 生きもの探検隊 隊員募集中！<br>LINEでイベントの最新情報をいち早くお届けします。</p>
+        <a href="https://lin.ee/ndfZBot" target="_blank" rel="noopener" class="btn btn-line">LINEで登録する</a>
+        <p style="margin-top:12px;font-size:12px;color:var(--color-text-tertiary);">https://lin.ee/ndfZBot</p>
+      </div>
     </div>
   </div>
 </section>
