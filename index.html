@@ -26,8 +26,8 @@
   --color-surface-overlay: rgba(240,250,235,0.94);
   --color-surface-overlay-blur: rgba(240,250,235,0.85);
   --color-text-primary: #142A10;
-  --color-text-secondary: #3E6E30;
-  --color-text-tertiary: #6BAA50;
+  --color-text-secondary: #1B3C0E;
+  --color-text-tertiary: #2F5A1A;
   --color-text-inverse: #FFFFFF;
   --color-border-default: #90D070;
   --color-border-subtle: #C8E0B8;
@@ -55,7 +55,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--font-body);color:var(--color-text-primary);background:#E0F2D0;overflow-x:hidden;position:relative}
+body{font-family:var(--font-body);color:var(--color-text-primary);background:#E0F2D0;overflow-x:hidden;position:relative;font-weight:500}
 
 /* Camo background */
 .camo-bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
@@ -115,7 +115,7 @@ body{font-family:var(--font-body);color:var(--color-text-primary);background:#E0
 .nav-logo{text-decoration:none;display:flex;align-items:center}
 .nav-logo img{height:32px;width:auto;mix-blend-mode:multiply}
 .nav-links{display:flex;align-items:center;gap:4px;list-style:none}
-.nav-links a{font-size:11px;color:var(--color-text-secondary);text-decoration:none;padding:4px 10px;border-radius:var(--radius-sm);transition:all .15s ease}
+.nav-links a{font-size:13px;color:var(--color-text-secondary);text-decoration:none;padding:4px 10px;border-radius:var(--radius-sm);transition:all .15s ease}
 .nav-links a:hover{background:rgba(10,138,64,.08);color:var(--color-brand-primary);font-weight:700}
 @media(max-width:768px){.nav-links{display:none}}
 
