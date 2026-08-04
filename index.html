@@ -829,9 +829,12 @@ document.querySelectorAll('.filter-tab').forEach(tab => {
 });
 
 // 申込みフォーム送信後にサンクスメッセージを表示
-var applyIframeLoaded = false;
+var applyFormSubmitted = false;
+document.getElementById('apply-form').addEventListener('submit', function() {
+  applyFormSubmitted = true;
+});
 document.getElementById('hidden_iframe_apply').addEventListener('load', function() {
-  if (!applyIframeLoaded) { applyIframeLoaded = true; return; }
+  if (!applyFormSubmitted) return;
   document.getElementById('apply-form').style.display = 'none';
   document.getElementById('apply-thankyou').style.display = 'block';
   var wrapper = document.querySelector('#apply .form-wrapper');
